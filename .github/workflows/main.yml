@@ -15,11 +15,13 @@ jobs:
         run: node cucumber-html-report.js
         
       - uses: actions/upload-artifact@v3
+        if: always()
         with:
           name: Cucumber-Report
           path: reports/cucumber-htmlreport.html/
 
       - uses: actions/upload-artifact@v3
+        if: always()
         with:
           name: Cucumber-Report-Porable
           path: cucumber-report.html
