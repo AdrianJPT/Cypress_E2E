@@ -1,0 +1,38 @@
+{
+  "name": "netbox-zabbix-integration",
+  "version": "1.0.0",
+  "description": "Cypress Netbox-Zabbix-Integration",
+  "main": "index.js",
+  "scripts": {
+    "cypress:runner": "cypress open --e2e --browser chrome",
+    "cypress:execution": "cypress run --spec cypress/e2e/features/*",
+    "cypress:execution-tags": "cypress run --env tags=@mobile",
+    "cypress:execution-allure": "cypress run --env allure=true",
+    "allure:clear": "rm -r allure-results/ allure-report cypress/screenshots || true",
+    "allure:report": "allure generate allure-results --clean -o allure-report",
+    "allure:history": "mv -f allure-report/history allure-results/history && rm -r allure-report || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdrianJPT/Cypress_E2E.git"
+  },
+  "keywords": [
+    "cypress",
+    "javascript",
+    "cucumber"
+  ],
+  "author": "Adrian Jared Pablo Tamayo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdrianJPT/Cypress_E2E/issues"
+  },
+  "homepage": "https://github.com/AdrianJPT/Cypress_E2E#readme",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^16.0.3",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "@shelex/cypress-allure-plugin": "^2.38.3",
+    "cypress": "^12.0.2",
+    "esbuild": "^0.17.16",
+    "multiple-cucumber-html-reporter": "^3.3.0"
+  }
+}
