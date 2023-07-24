@@ -1,0 +1,37 @@
+name: Test Netbox and Zabbix integration E2E Testing
+on: push
+jobs:
+  cypress-run:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+      
+      - name: Generate Cucumber Report
+        run: node cucumber-html-report.js
+        
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Cucumber-Report
+          path: reports/cucumber-htmlreport.html/
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Cucumber-Report-Porable
+          path: cucumber-report.html
+      # Save the screenshots in case tests are failed
+      - uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      # Save ALWAYS the video screenplay
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos
