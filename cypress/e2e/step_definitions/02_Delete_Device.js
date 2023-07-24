@@ -7,8 +7,8 @@ import { netboxDeviceInfo } from "../POM/Netbox/NetboxDeviceInfo";
 import { zabbixLogin } from "../POM/Zabbix/ZabbixLogin";
 import { zabbixHost } from "../POM/Zabbix/ZabbixHost";
 
-let ZabbixURL = "http://192.168.40.40:80/"
-let NetboxURL = "http://192.168.40.40:8000/"
+let ZabbixURL = "http://4.228.209.251:80/"
+let NetboxURL = "http://4.228.209.251:8000/"
 
 Given('Log in successfully in Netbox and Zabbix', ()=>{
     
